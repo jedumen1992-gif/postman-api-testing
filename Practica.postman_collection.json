@@ -1,0 +1,53 @@
+{
+  "info": {
+    "_postman_id": "a04f2c88-2043-45be-8c34-70325ed09177",
+    "name": "Practica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36602653"
+  },
+  "item": [
+    {
+      "name": "usuarios",
+      "item": [
+        {
+          "name": "New Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Validar que el estado sea 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users/{{id_usuario}}",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users",
+                "{{id_usuario}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "id_usuario",
+      "value": ""
+    }
+  ]
+}

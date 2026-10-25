@@ -1,0 +1,26 @@
+name: Pruebas de API Postman
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v3
+        
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Instalar Newman
+        run: npm install -g newman
+        
+      - name: Ejecutar pruebas de Postman
+        run: newman run "Practica.postman_collection.json" -e "Banco - QA.postman_environment.json"
